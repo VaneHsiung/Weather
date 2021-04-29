@@ -1,0 +1,151 @@
+/* reset begin */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* reset end */
+
+/* custom css begin */
+
+/* for all */
+
+@import url(./font-awesome/css/font-awesome.css);
+:root {
+    --vw: 100vw;
+    --vh: 100vh;
+}
+
+body {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #bdc3c7;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--vw);
+    height: var(--vh);
+}
+
+/* for startApp.js */
+
+.custom-a {
+    text-decoration: none;
+}
+
+.custom-a:visited {
+    color: black;
+}
+
+.custom-a:hover {
+    color: #c0392b;
+}
+
+/* for weather.js */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, calc(var(--vw) / 4));
+    grid-template-rows: repeat(3, calc(var(--vh) / 4));
+    grid-template-areas: '. city .' 'left-btn weather right-btn' '. weather .';
+}
+
+.city {
+    grid-area: city;
+}
+
+.left-btn {
+    grid-area: left-btn;
+    border: none;
+    background-color: #bdc3c7;
+}
+
+.left-btn:hover {
+    color: #c0392b;
+}
+
+.right-btn {
+    grid-area: right-btn;
+    border: none;
+    background-color: #bdc3c7;
+}
+
+.right-btn:hover {
+    color: #c0392b;
+}
+
+.weather {
+    grid-area: weather;
+    justify-self: stretch;
+    align-self: stretch;
+}
+
+.grid-weather {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: 'icon icon icon' '. temp .' 'temp-min . temp-max' 'desc desc desc';
+}
+
+.icon {
+    grid-area: icon;
+}
+
+.temp {
+    grid-area: temp;
+}
+
+.temp-min {
+    grid-area: temp-min;
+}
+
+.temp-max {
+    grid-area: temp-max;
+}
+
+.desc {
+    grid-area: desc;
+}
+
+/* custom css end */
