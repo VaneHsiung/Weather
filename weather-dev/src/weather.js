@@ -17,10 +17,12 @@ export default function Container(props) {
             xhr.withCredentials = false;
 
             xhr.addEventListener("readystatechange", function () {
-                if (this.readyState === this.DONE) {
+                if (this.readyState === this.DONE && this.response) {
                     let result = this.response.name === elem ? this.response : null;
                     citiesData[cities.indexOf(elem)] = result;
                     setState(Object.assign({}, state, { citiesData }));
+                } else {
+                    console.log(this.statusText)
                 }
             });
 
@@ -32,7 +34,7 @@ export default function Container(props) {
             xhr.send(data);
         })
 
-    }, [state.cities])
+    }, [state.cities]);
 
     function handleLeftClick() {
         let currentCity = state.currentCity;
@@ -115,7 +117,7 @@ function WeatherIcon(props) {
 function Temp(props) {
     return (
         <div className="temp">
-            <strong>{props.temp}&#8451;</strong>
+            <h2>{props.temp}&#8451;</h2>
         </div>
     );
 }
@@ -133,9 +135,18 @@ function MaxTemp(props) {
 }
 
 function Description(props) {
+    let desc = props.desc;
+    let words = desc.split(' ');
+    words = words.map(word => {
+        word = word.toLowerCase();
+        let chars = word.split('');
+        chars[0] = chars[0].toUpperCase();
+        return chars.join('');
+    });
+    desc = words.join(' ');
     return (
         <div className="desc">
-            <strong>{props.desc}</strong>
+            <h2>{desc}</h2>
         </div>
     );
 }
