@@ -34,7 +34,7 @@ export default function Container(props) {
             xhr.send(data);
         })
 
-    }, [state.cities]);
+    }, [state]);
 
     function handleLeftClick() {
         let currentCity = state.currentCity;

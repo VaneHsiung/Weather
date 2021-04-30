@@ -8,7 +8,8 @@ import Weather from './weather.js';
 import './index.css';
 import Start from './startApp.js';
 
-export default () => {
+
+function AppRouter() {
     return (
         <Router>
             <Switch>
@@ -24,3 +25,5 @@ export default () => {
         </Router>
     );
 }
+
+export default AppRouter;
