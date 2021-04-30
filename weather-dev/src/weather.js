@@ -9,7 +9,7 @@ let currentCity = 0;
 export default function Container(props) {
     const [state, setState] = useState({ cities, citiesData, currentCity });
     useEffect(() => {
-        cities.forEach(elem => {
+        state.cities.forEach(elem => {
             //这个 API 不仅限制每分钟请求的次数，免费版限制 500 次每月
             const data = null;
 
@@ -34,7 +34,7 @@ export default function Container(props) {
             xhr.send(data);
         })
 
-    }, [state]);
+    }, [state.cities]);
 
     function handleLeftClick() {
         let currentCity = state.currentCity;
