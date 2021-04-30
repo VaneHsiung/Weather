@@ -10,7 +10,7 @@ export default function Container(props) {
     const [state, setState] = useState({ cities, citiesData, currentCity });
     useEffect(() => {
         cities.forEach(elem => {
-            //这个 API 限制每分钟请求的次数
+            //这个 API 不仅限制每分钟请求的次数，免费版限制 500 次每月
             const data = null;
 
             const xhr = new XMLHttpRequest();
@@ -21,13 +21,13 @@ export default function Container(props) {
                     let result = this.response.name === elem ? this.response : null;
                     citiesData[cities.indexOf(elem)] = result;
                     setState(Object.assign({}, state, { citiesData }));
-                } else {
+                } else if (this.statusText !== '') {
                     console.log(this.statusText)
                 }
             });
 
-            xhr.open("GET", "https://community-open-weather-map.p.rapidapi.com/weather?q=" + elem + "&lat=0&lon=0&id=2172797&lang=null&units=%22metric%22%20or%20%22imperial%22");
-            xhr.setRequestHeader("x-rapidapi-key", "a9d859ce38mshb25a21550747c7ep1c9ab9jsnb58236eb24f9");
+            xhr.open("GET", "https://community-open-weather-map.p.rapidapi.com/weather?q=" + elem + "&units=metric");
+            xhr.setRequestHeader("x-rapidapi-key", "ba47353b31msh47b3ee3b762e748p1ce058jsn3dd2477d9dc4");
             xhr.setRequestHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com");
             xhr.responseType = 'json';
 
@@ -134,19 +134,21 @@ function MaxTemp(props) {
     );
 }
 
-function Description(props) {
-    let desc = props.desc;
-    let words = desc.split(' ');
+function FristWordUpperCase(str) {
+    let words = str.split(' ');
     words = words.map(word => {
         word = word.toLowerCase();
         let chars = word.split('');
         chars[0] = chars[0].toUpperCase();
         return chars.join('');
     });
-    desc = words.join(' ');
+    return words.join(' ');
+}
+
+function Description(props) {
     return (
         <div className="desc">
-            <h2>{desc}</h2>
+            <h2>{FristWordUpperCase(props.desc)}</h2>
         </div>
     );
 }
