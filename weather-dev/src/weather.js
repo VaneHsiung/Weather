@@ -10,7 +10,34 @@ export default function Container(props) {
     const [state, setState] = useState({ cities, citiesData, currentCity });
     useEffect(() => {
         state.cities.forEach(elem => {
-            //这个 API 不仅限制每分钟请求的次数，免费版限制 500 次每月
+            // // rapidapi
+            // // 这个 API 不仅限制每分钟请求的次数，免费版限制 500 次每月
+            // const data = null;
+
+            // const xhr = new XMLHttpRequest();
+            // xhr.withCredentials = false;
+
+            // xhr.addEventListener("readystatechange", function () {
+            //     if (this.readyState === this.DONE && this.response) {
+            //         let result = this.response.name === elem ? this.response : null;
+            //         citiesData[cities.indexOf(elem)] = result;
+            //         setState(Object.assign({}, state, { citiesData }));
+            //     } else if (this.statusText !== '') {
+            //         console.log(this.statusText)
+            //     }
+            // });
+
+            // xhr.open("GET", "https://community-open-weather-map.p.rapidapi.com/weather?q=" + elem + "&units=metric");
+            // xhr.setRequestHeader("x-rapidapi-key", "ba47353b31msh47b3ee3b762e748p1ce058jsn3dd2477d9dc4");
+            // xhr.setRequestHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com");
+            // xhr.responseType = 'json';
+
+            // xhr.send(data);
+            
+            // OpenWeather official API
+            // Weather APIs 
+            // 60 calls/minute
+            // 1,000,000 calls/month
             const data = null;
 
             const xhr = new XMLHttpRequest();
@@ -26,15 +53,12 @@ export default function Container(props) {
                 }
             });
 
-            xhr.open("GET", "https://community-open-weather-map.p.rapidapi.com/weather?q=" + elem + "&units=metric");
-            xhr.setRequestHeader("x-rapidapi-key", "ba47353b31msh47b3ee3b762e748p1ce058jsn3dd2477d9dc4");
-            xhr.setRequestHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com");
+            xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=" + elem + "&appid=3e60eafdccc2b1dfacd287bf1edf8377&units=metric");
             xhr.responseType = 'json';
 
             xhr.send(data);
         })
-
-    }, [state.cities]);
+    }, []);
 
     function handleLeftClick() {
         let currentCity = state.currentCity;
