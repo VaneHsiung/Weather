@@ -1,4 +1,4 @@
-如何启动应用程序的说明
+How To Use
 
 ```
 git clone https://github.com/VaneHsiung/Weather.git
