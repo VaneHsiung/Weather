@@ -131,7 +131,9 @@ function Weather(props) {
 }
 
 function WeatherIcon(props) {
-    let url = "https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/" + props.icon + ".png";
+    // let url = "https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/" + props.icon + ".png";
+    // use local images
+    let url = "/assets/" + props.icon + ".png";
     return (
         <div className='icon'>
             <img src={url} alt={props.icon} className="icon" />
