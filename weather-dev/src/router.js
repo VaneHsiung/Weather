@@ -5,7 +5,6 @@ import {
     Route,
 } from "react-router-dom";
 import Weather from './weather.js';
-import './index.css';
 import Start from './startApp.js';
 
 
@@ -14,9 +13,7 @@ function AppRouter() {
         <Router>
             <Switch>
                 <Route path="/weather">
-                    <div className="center">
                         <Weather />
-                    </div>
                 </Route>
                 <Route path="/">
                     <Start />

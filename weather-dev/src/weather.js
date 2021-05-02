@@ -6,9 +6,10 @@ let cities = ['London', 'Brisbane', 'Melbourne'];
 let citiesData = cities.map(elem => null);
 let currentCity = 0;
 
-export default function Container(props) {
+function Container(props) {
     const [state, setState] = useState({ cities, citiesData, currentCity });
     useEffect(() => {
+        // equivalent to componentDidMount()
         state.cities.forEach(elem => {
             // // rapidapi
             // // 这个 API 不仅限制每分钟请求的次数，免费版限制 500 次每月
@@ -33,7 +34,7 @@ export default function Container(props) {
             // xhr.responseType = 'json';
 
             // xhr.send(data);
-            
+
             // OpenWeather official API
             // Weather APIs 
             // 60 calls/minute
@@ -177,7 +178,15 @@ function Description(props) {
     );
 }
 
-//data
+export default function () {
+    return (
+        <div className="center">
+            <Container />
+        </div>
+    );
+}
+
+// data
 // let london = {
 //     coord: { lon: -0.13, lat: 51.51 },
 //     weather: [{
