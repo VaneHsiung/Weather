@@ -4,7 +4,9 @@ import './index.css';
 function StartApp() {
     return (
         <div className="center">
-            <a href="/weather" className="custom-a"><i className="fa fa-rocket fa-2x"></i>Start App</a>
+            <a href="/weather" className="custom-a">
+                <i className="fa fa-rocket fa-2x"></i>Start App
+            </a>
         </div>
     );
 }
