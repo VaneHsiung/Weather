@@ -1,6 +1,5 @@
-export const ADD_WEATHER_DATA = 'ADD_WEATHER_DATA';
-export const CHANGE_CURRENT_CITY = 'CHANGE_CURRENT_CITY';
+export const addWeatherData = (currentCity, data) => ({type: 'ADD_WEATHER_DATA', currentCity, data});
 
-export const addWeatherData = (currentCity, data) => ({type: ADD_WEATHER_DATA, currentCity, data});
+export const changeToLeftCity = (currentCity, cities) => ({type: 'CHANGE_TO_LEFT_CITY', currentCity, cities});
 
-export const changeCurrentCity = currentCity => ({type: CHANGE_CURRENT_CITY, currentCity});
+export const changeToRightCity = (currentCity, cities) => ({type: 'CHANGE_TO_LEFT_CITY', currentCity, cities})

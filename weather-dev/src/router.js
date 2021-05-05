@@ -4,15 +4,21 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import Weather from './components/Container';
+import Weather from './containers/ContainerCon';
 import StartApp from './components/StartApp';
+import './index.css';
+
+
+
 
 const AppRouter = () => {
     return (
         <Router>
             <Switch>
                 <Route path="/weather">
-                    <Weather />
+                    <div className="center">
+                        <Weather />
+                    </div>
                 </Route>
                 <Route path="/">
                     <StartApp />
