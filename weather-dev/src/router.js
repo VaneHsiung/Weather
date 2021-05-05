@@ -4,19 +4,18 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import Weather from './weather.js';
-import Start from './startApp.js';
+import Weather from './components/Container';
+import StartApp from './components/StartApp';
 
-
-function AppRouter() {
+const AppRouter = () => {
     return (
         <Router>
             <Switch>
                 <Route path="/weather">
-                        <Weather />
+                    <Weather />
                 </Route>
                 <Route path="/">
-                    <Start />
+                    <StartApp />
                 </Route>
             </Switch>
         </Router>

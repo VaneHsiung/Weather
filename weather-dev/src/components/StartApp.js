@@ -1,7 +1,7 @@
 import React from 'react';
-import './index.css';
+import '../index.css';
 
-function StartApp() {
+const StartApp = () => {
     return (
         <div className="center">
             <a href="/weather" className="custom-a">
