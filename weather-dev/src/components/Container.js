@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import City from './City';
 import LeftBtn from '../containers/LeftBtnCon';
 import RightBtn from '../containers/RightBtnCon';
 import Weather from './Weather';
 import '../index.css';
-import currentCity from '../reducers/currentCity';
 
 // // UI Component
 // let cities = ['London', 'Brisbane', 'Melbourne'];
